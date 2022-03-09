@@ -1,6 +1,46 @@
 $body-color: red;
-
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  color: $body-color;
-  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+.nav-bar {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  border: 2px dotted red;
+  justify-content: space-evenly;
+  .nav-option {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    list-style: none;
+  }
+}
+
+.meals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5em 10em;
+  border: 2px dotted blue;
+  .card {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    border: 3px dotted green;
+    .card-image {
+      background-color: red;
+      height: 10em;
+      width: 100%;
+    }
+    .card-desc {
+      display: flex;
+      gap: 10em;
+    }
+  }
 }
