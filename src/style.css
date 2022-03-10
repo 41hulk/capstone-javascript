@@ -1,99 +1,111 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600;800&family=Oregano&display=swap");
 
 body {
+  padding: 0;
+  margin: 0;
   font-family: "Lato", sans-serif;
+  background-image: linear-gradient(hsl(25, 23%, 33%), hsl(24, 29%, 72%));
 }
 
-.nav-bar {
-  padding: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px dotted red;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+.nav {
+  background-image: linear-gradient(hsl(15, 60%, 45%), hsl(15, 60%, 60%));
 }
 
-.nav-bar .nav-option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 4em;
+.nav-link {
+  color: hsl(0, 20%, 16%);
+  font-family: "Lato", cursive;
+}
+
+.nav-link:hover {
+  color: hsl(325, 65%, 10%);
+}
+
+main {
+  filter: blur(0);
+  transition: all ease 0.5s;
+}
+
+.blur {
+  filter: blur(0.25rem);
+}
+
+.card {
+  background-color: hsl(20, 15%, 80%) !important;
+}
+
+.comment-window {
+  display: block;
+  padding: 1rem;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: auto;
+  width: 18.5rem;
+  background-color: hsl(20, 15%, 80%);
+  color: hsl(325, 65%, 10%);
+  border: 1px solid hsla(15, 92%, 5%, 0.5);
+  z-index: 5;
+  box-shadow: 0 0 0.5rem 0.5rem hsla(0, 0%, 0%, 0.25);
+  transition: all 1s ease;
+}
+
+.comment-off {
+  height: 0;
+}
+
+.close-img {
+  position: relative;
+  z-index: 6;
+  right: 20%;
+  padding-top: 0.9rem;
+}
+
+.close-img svg {
+  fill: white;
+}
+
+.inner-container {
+  margin: auto;
+  max-width: 30rem;
+}
+
+.comment-box {
+  resize: none;
+  height: 6rem;
+}
+
+.comment-box,
+.name-field {
+  width: 14rem;
+  background-color: lavenderblush;
+}
+
+.svg-cursor {
+  cursor: pointer;
+}
+
+.ul-comment li {
   list-style: none;
 }
 
-.meals {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 5em 10em;
-  border: 2px dotted blue;
+footer {
+  background-color: hsl(20, 15%, 20%);
+  color: hsl(20, 15%, 80%);
 }
 
-.meals .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 10px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 3px dotted green;
-}
+@media screen and (min-width: 768px) {
+  .comment-window {
+    width: 35rem;
+    padding: 2rem;
+  }
 
-.meals .card .card-image {
-  background-color: red;
-  height: 10em;
-  width: 100%;
-}
+  .close-img {
+    position: static;
+    padding-top: 0;
+  }
 
-.meals .card .card-desc {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10em;
+  .close-img svg {
+    fill: black;
+  }
 }
-
-.meals .card button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 4px;
-  border-radius: 5px;
-  background-color: blue;
-  color: white;
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-
-.footer {
-  padding: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px dotted #eeff00;
-}
-/*# sourceMappingURL=style.css.map */
