@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nvar modal = document.querySelector(\"#myModal\");\nvar btn = document.querySelector(\"#comment-btn\");\nvar span = document.querySelector(\".close\");\nbtn.onclick = function() {\n  modal.style.display = \"block\";\n}\nspan.onclick = function() {\n  modal.style.display = \"none\";\n}\n\nwindow.onclick = function(event) {\n  if (event.target == modal) {\n    modal.style.display = \"none\";\n  }\n}\n\n\n//# sourceURL=webpack://mealdb/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n\n\n//# sourceURL=webpack://mealdb/./src/index.js?");
 
 /***/ })
 
