@@ -1,3 +1,4 @@
-import showMealList from './dom';
+import showMealList from './dom.js';
 import './style.css';
+
 showMealList();
