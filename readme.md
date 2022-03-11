@@ -13,7 +13,7 @@ Meal DB - Capstone 2 Project - Microverse
 
 ## Images
 
-![screenshot](./app-screenshot.jpg)
+![screenshot](./app-screenshot-pic.jpg)
 
 ## Built With
 
