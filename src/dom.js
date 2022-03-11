@@ -1,4 +1,6 @@
-import { getMealsList, getMealDetails, getLikes, getComments } from './api.js';
+import {
+  getMealsList, getMealDetails, getLikes, getComments,
+} from './api.js';
 
 const showMealList = () => {
   getLikes().then((likesObj) => {

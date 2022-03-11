@@ -29,4 +29,6 @@ const getComments = async (id) => {
   return commentsList;
 };
 
-export { getMealsList, getMealDetails, getLikes, getComments };
+export {
+  getMealsList, getMealDetails, getLikes, getComments,
+};
