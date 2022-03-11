@@ -2,6 +2,7 @@ import {
   getMealsList, getMealDetails, getLikes, sendLike ,getComments,
 } from './api.js';
 const countItems = (mealArr) => mealArr.length;
+const countComments = (commentsArr) => commentsArr.length;
 const showMealList = () => {
   getLikes().then((likesObj) => {
     getMealsList().then((res) => {
@@ -51,7 +52,7 @@ const showMealList = () => {
             <h5 class="modal-category">Tags: <span class="fw-light modal-cat">${res.strTags}</span></h5>
           </div>
           <p>${res.strInstructions}</p>
-          <h6 class="fw-bold">Comments ()</h6>
+          <h6 class="fw-bold">Comments (${countComments(commentsList)})</h6>
           <ul id="comments-list">
               ${displayComments(commentsList)}
           </ul>
