@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600;800&family=Oregano&display=swap");
+
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f1f2f6;
+  font-family: "Lato", sans-serif;
+}
+
+header ul {
+  width: 100%;
+  background-color: #a9eeb8;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  margin: 0 20px;
+}
+
+#counterItem {
+  color: rgb(226, 72, 72);
+}
+
+header ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: rgb(18, 26, 32);
+}
+
+#meals-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.meal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  margin: 20px 50px;
+  width: 330px;
+  height: 440px;
+  border: 0.8px solid #222 !important;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.meal-container:hover {
+  transform: scale(1.1);
+}
+
+.meal-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.meal-container .meal-title {
+  font-size: 1rem;
+  padding: 15px 0;
+  color: #534340;
+  width: 200px;
+}
+
+.meal-container .heart-container {
+  display: flex;
+  align-items: center;
+}
+
+.meal-container .meal-content {
+  padding: 0 8px;
+  background-color: #fff;
+}
+
+.meal-container .fa-heart {
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  transition: all ease 0.3s;
+  color: tomato;
+  padding-right: 8px;
+}
+
+.modal-cat {
+  color: #00f815;
+}
+
+.comment-btn {
+  width: 100%;
+  border: transparent;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #70a77c;
+  color: #f1f2f6;
+}
+
+#comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #70a77c;
+}
+
+.modal-title {
+  text-align: center;
+  flex: 1;
+}
+
+.modal-category {
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.btn {
+  color: #000;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
