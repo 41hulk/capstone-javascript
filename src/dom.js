@@ -1,7 +1,7 @@
 import {
   getMealsList, getMealDetails, getLikes, sendLike ,getComments,
 } from './api.js';
-
+const countItems = (mealArr) => mealArr.length;
 const showMealList = () => {
   getLikes().then((likesObj) => {
     getMealsList().then((res) => {
@@ -26,6 +26,7 @@ const showMealList = () => {
       </div>`,
     )
     .join('')}`;
+    document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items.`;
 
       const openModal = (e) => {
         const currentCommentBtn = e.target;
@@ -78,18 +79,7 @@ const showMealList = () => {
         likeBtns[i].addEventListener('click', likeFunc);
       }
 
-      // const likes = document.querySelectorAll('.like-btn');
-
-      // likes.forEach((like) => {
-      //   like.addEventListener('click', (e) => {
-      //     addLikes(e);
-
-      //     likesObj[item.idMeal]++;
-
-      //     // const numOfLikes = e.target.parentNode.children[1];
-      //     // numOfLikes.textContent = +numOfLikes.textContent + 1;
-      //   });
-      // });
+    
 
     });
   });

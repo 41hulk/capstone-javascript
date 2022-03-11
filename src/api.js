@@ -35,19 +35,6 @@ const sendLike = (id) => {
     },
   });
 };
-const addLikes = async (e) => {
-  
-  const element = e.target.parentNode.children[1].id;
-
-  const fetchLikes = await fetch(likesUrl, {
-    method: 'POST',
-    body: JSON.stringify({
-      item_id: element,
-    }),
-    headers: header,
-  });
-  return fetchLikes;
-}
 
 const getComments = async (id) => {
   const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/comments?item_id=${id}`);
@@ -58,5 +45,5 @@ const getComments = async (id) => {
 };
 
 export {
-  getMealsList, getMealDetails, getLikes, addLikes, getComments, sendLike
+  getMealsList, getMealDetails, getLikes, getComments, sendLike
 };
