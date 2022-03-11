@@ -1,7 +1,9 @@
 import {
-  getMealsList, getMealDetails, getLikes, getComments,
+  getMealsList, getMealDetails, getLikes, sendLike, getComments,
 } from './api.js';
 
+const countItems = (mealArr) => mealArr.length;
+const countComments = (commentsArr) => commentsArr.length;
 const showMealList = () => {
   getLikes().then((likesObj) => {
     getMealsList().then((res) => {
@@ -10,9 +12,7 @@ const showMealList = () => {
       ${res.meals
     .map(
       (item) => `
-      <div class="col-4 border d-flex flex-column meal-container" id="${
-  item.idMeal
-}">
+      <div class="col-4 border d-flex flex-column meal-container" id="${item.idMeal}">
         <img src="${item.strMealThumb}/preview" alt="${item.strMeal}">
         <div class="d-flex align-items-center justify-content-between meal-content">
           <h2 class="meal-title">${item.strMeal}</h2>
@@ -28,6 +28,7 @@ const showMealList = () => {
       </div>`,
     )
     .join('')}`;
+      document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items.`;
 
       const openModal = (e) => {
         const currentCommentBtn = e.target;
@@ -52,7 +53,7 @@ const showMealList = () => {
             <h5 class="modal-category">Tags: <span class="fw-light modal-cat">${res.strTags}</span></h5>
           </div>
           <p>${res.strInstructions}</p>
-          <h6 class="fw-bold">Comments ()</h6>
+          <h6 class="fw-bold">Comments (${countComments(commentsList)})</h6>
           <ul id="comments-list">
               ${displayComments(commentsList)}
           </ul>
@@ -62,9 +63,22 @@ const showMealList = () => {
       };
 
       const commentBtns = document.querySelectorAll('.comment-btn');
+      const likeBtns = document.querySelectorAll('.like-btn');
+      const likeFunc = (e) => {
+        const currentLikeBtn = e.target;
+        const { id } = currentLikeBtn.parentNode.parentNode.parentNode;
+        const numberLikes = currentLikeBtn.parentNode.lastElementChild;
+        numberLikes.innerHTML = `${
+          +numberLikes.innerHTML.split('')[0] + 1
+        } likes`;
+        currentLikeBtn.classList.replace('fa-regular', 'fa-solid');
+        sendLike(id);
+        currentLikeBtn.removeEventListener('click', likeFunc);
+      };
 
       for (let i = 0; i < commentBtns.length; i += 1) {
         commentBtns[i].addEventListener('click', openModal);
+        likeBtns[i].addEventListener('click', likeFunc);
       }
     });
   });
