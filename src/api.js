@@ -10,4 +10,25 @@ const getMealDetails = async (id) => {
   return mealDetails.meals[0];
 };
 
-export { getMealsList, getMealDetails };
+const getLikes = async () => {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/likes/');
+  const likesList = await response.json().catch(() => false);
+  if (!likesList) return false;
+  const likesObj = {};
+  likesList.forEach((item) => {
+    likesObj[item.item_id] = item.likes;
+  });
+  return likesObj;
+};
+
+const getComments = async (id) => {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/comments?item_id=${id}`);
+  if (!response.ok) return [];
+  const commentsList = await response.json().catch(() => false);
+  if (!commentsList) return [];
+  return commentsList;
+};
+
+export {
+  getMealsList, getMealDetails, getLikes, getComments,
+};
