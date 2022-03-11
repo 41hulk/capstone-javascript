@@ -1,5 +1,5 @@
 import {
-  getMealsList, getMealDetails, getLikes, sendLike, getComments,sendComment
+  getMealsList, getMealDetails, getLikes, sendLike, getComments, sendComment,
 } from './api.js';
 
 const countItems = (mealArr) => mealArr.length;
@@ -37,10 +37,7 @@ const showMealList = () => {
         const modalBody = document.querySelector('.modal-body');
         modalHeader.innerHTML = 'LOADING ...';
         modalBody.innerHTML = '';
-        // const displayComments = (comments) => {
-        //   if (!comments.length) return 'There are no comments yet';
-        //   return `${comments.map((item) => `<li><span class="fw-bold">${item.creation_date}</span> <span class="text-decoration-underline">${item.username}:</span> ${item.comment}</li>`).join('')}`;
-        // };
+
         const displayComments = (comments) => {
           if (!comments.length) return 'There are no comments yet';
           return `${comments
@@ -73,7 +70,7 @@ const showMealList = () => {
               <textarea required placeholder="Your Insights" id="message" name="message"></textarea>
             </form>
           `;
-          document.getElementById('comments-form').addEventListener('submit', (e) => {
+            document.getElementById('comments-form').addEventListener('submit', (e) => {
               e.preventDefault();
               const form = e.currentTarget.elements;
               const username = form.name.value;

@@ -55,5 +55,5 @@ const sendComment = (id, username, comment) => fetch('https://us-central1-involv
 });
 
 export {
-  getMealsList, getMealDetails, getLikes, getComments, sendLike, sendComment
+  getMealsList, getMealDetails, getLikes, getComments, sendLike, sendComment,
 };
