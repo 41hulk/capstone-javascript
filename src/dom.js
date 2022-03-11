@@ -1,6 +1,7 @@
 import {
-  getMealsList, getMealDetails, getLikes, sendLike ,getComments,
+  getMealsList, getMealDetails, getLikes, sendLike, getComments,
 } from './api.js';
+
 const countItems = (mealArr) => mealArr.length;
 const countComments = (commentsArr) => commentsArr.length;
 const showMealList = () => {
@@ -11,7 +12,7 @@ const showMealList = () => {
       ${res.meals
     .map(
       (item) => `
-      <div class="col-4 border d-flex flex-column meal-container" id="${ item.idMeal }">
+      <div class="col-4 border d-flex flex-column meal-container" id="${item.idMeal}">
         <img src="${item.strMealThumb}/preview" alt="${item.strMeal}">
         <div class="d-flex align-items-center justify-content-between meal-content">
           <h2 class="meal-title">${item.strMeal}</h2>
@@ -27,7 +28,7 @@ const showMealList = () => {
       </div>`,
     )
     .join('')}`;
-    document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items.`;
+      document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items.`;
 
       const openModal = (e) => {
         const currentCommentBtn = e.target;
@@ -79,9 +80,6 @@ const showMealList = () => {
         commentBtns[i].addEventListener('click', openModal);
         likeBtns[i].addEventListener('click', likeFunc);
       }
-
-    
-
     });
   });
 };

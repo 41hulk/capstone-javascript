@@ -30,9 +30,7 @@ const sendLike = (id) => {
     body: JSON.stringify({
       item_id: id,
     }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
+    headers: header,
   });
 };
 
@@ -45,5 +43,5 @@ const getComments = async (id) => {
 };
 
 export {
-  getMealsList, getMealDetails, getLikes, getComments, sendLike
+  getMealsList, getMealDetails, getLikes, getComments, sendLike,
 };
