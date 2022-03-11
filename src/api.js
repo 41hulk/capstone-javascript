@@ -24,6 +24,17 @@ const getLikes = async () => {
   return likesObj;
 };
 
+const sendLike = (id) => {
+  fetch(likesUrl, {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: id,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+};
 const addLikes = async (e) => {
   
   const element = e.target.parentNode.children[1].id;
@@ -47,5 +58,5 @@ const getComments = async (id) => {
 };
 
 export {
-  getMealsList, getMealDetails, getLikes, addLikes, getComments,
+  getMealsList, getMealDetails, getLikes, addLikes, getComments, sendLike
 };
