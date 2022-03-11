@@ -1,3 +1,6 @@
+const likesUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/likes/';
+const header = new Headers({ 'Content-type': 'application/json; charset=UTF-8' });
+
 const getMealsList = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=French');
   const mealsList = await response.json();
@@ -11,7 +14,7 @@ const getMealDetails = async (id) => {
 };
 
 const getLikes = async () => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/likes/');
+  const response = await fetch(likesUrl);
   const likesList = await response.json().catch(() => false);
   if (!likesList) return false;
   const likesObj = {};
@@ -20,6 +23,20 @@ const getLikes = async () => {
   });
   return likesObj;
 };
+
+const addLikes = async (e) => {
+  
+  const element = e.target.parentNode.children[1].id;
+
+  const fetchLikes = await fetch(likesUrl, {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: element,
+    }),
+    headers: header,
+  });
+  return fetchLikes;
+}
 
 const getComments = async (id) => {
   const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/comments?item_id=${id}`);
@@ -30,5 +47,5 @@ const getComments = async (id) => {
 };
 
 export {
-  getMealsList, getMealDetails, getLikes, getComments,
+  getMealsList, getMealDetails, getLikes, addLikes, getComments,
 };
