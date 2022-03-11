@@ -41,10 +41,6 @@ To get a local copy up and running follow these simple example steps.
 - run `npm install`
 - run `npm start`
 
-### Github page for this project
-
-- <<<  >>> <- update >
-
 ## Authors
 
 👤 **FERNANDO SILVA**
