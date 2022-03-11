@@ -1,5 +1,5 @@
 import {
-  getMealsList, getMealDetails, getLikes, getComments,
+  getMealsList, getMealDetails, getLikes, addLikes, getComments,
 } from './api.js';
 
 const showMealList = () => {
@@ -10,9 +10,7 @@ const showMealList = () => {
       ${res.meals
     .map(
       (item) => `
-      <div class="col-4 border d-flex flex-column meal-container" id="${
-  item.idMeal
-}">
+      <div class="col-4 border d-flex flex-column meal-container" id="${ item.idMeal }">
         <img src="${item.strMealThumb}/preview" alt="${item.strMeal}">
         <div class="d-flex align-items-center justify-content-between meal-content">
           <h2 class="meal-title">${item.strMeal}</h2>
@@ -66,6 +64,20 @@ const showMealList = () => {
       for (let i = 0; i < commentBtns.length; i += 1) {
         commentBtns[i].addEventListener('click', openModal);
       }
+
+      const likes = document.querySelectorAll('.like-btn');
+
+      likes.forEach((like) => {
+        like.addEventListener('click', (e) => {
+          addLikes(e);
+
+          likesObj[item.idMeal]++;
+
+          // const numOfLikes = e.target.parentNode.children[1];
+          // numOfLikes.textContent = +numOfLikes.textContent + 1;
+        });
+      });
+
     });
   });
 };
