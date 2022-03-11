@@ -10,7 +10,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-ul {
+header ul {
   width: 100%;
   background-color: #a9eeb8;
   height: 40px;
@@ -19,8 +19,12 @@ ul {
   align-items: center;
 }
 
-ul li {
+header ul li {
   margin: 0 20px;
+}
+
+#counterItem {
+  color: rgb(226, 72, 72);
 }
 
 header ul li a {
@@ -98,6 +102,11 @@ header ul li a {
   font-size: 1.2rem;
   background-color: #70a77c;
   color: #f1f2f6;
+}
+
+#comments-list {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {

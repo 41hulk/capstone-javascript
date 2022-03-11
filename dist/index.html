@@ -17,7 +17,7 @@
     <header class="container-fluid">
         <div class="container-lg">
             <ul>
-                <li><a href="#">logo</a></li>
+                <li><a href=""><span id="counterItem"></span></a></li>
                 <li><a href="#">Regular</a></li>
                 <li><a href="#">Vegeterian</a></li>
                 <li><a href="#">Oriental Cuisine</a></li>
@@ -32,7 +32,7 @@
         </section>
     </div>
 
-    <footer class="container-fluid bg-dark">
+    <footer class="container-fluid footer">
         <div class="container-lg py-3">
             <p class="text-white text-center m-0">
                 Created by Fernando Silva & Ntare Guy &copy;2022
@@ -46,9 +46,13 @@
                     <h2 class="modal-title">LOADING ...</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body"></div>
+                <div class="modal-body">
+                    <form id="comments-form"></form>
+                </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn">Comment</button>
+                    <button type="submit" class="btn" form="comments-form">
+                        Comment
+                    </button>
                 </div>
             </section>
         </div>
