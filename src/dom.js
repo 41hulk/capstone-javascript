@@ -1,5 +1,5 @@
 import {
-  getMealsList, getMealDetails, getLikes, sendLike, getComments,
+  getMealsList, getMealDetails, getLikes, sendLike, getComments,sendComment
 } from './api.js';
 
 const countItems = (mealArr) => mealArr.length;
@@ -28,7 +28,7 @@ const showMealList = () => {
       </div>`,
     )
     .join('')}`;
-      document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items.`;
+      document.querySelector('#counterItem').innerHTML = `${countItems(res.meals)} items`;
 
       const openModal = (e) => {
         const currentCommentBtn = e.target;
@@ -37,9 +37,17 @@ const showMealList = () => {
         const modalBody = document.querySelector('.modal-body');
         modalHeader.innerHTML = 'LOADING ...';
         modalBody.innerHTML = '';
+        // const displayComments = (comments) => {
+        //   if (!comments.length) return 'There are no comments yet';
+        //   return `${comments.map((item) => `<li><span class="fw-bold">${item.creation_date}</span> <span class="text-decoration-underline">${item.username}:</span> ${item.comment}</li>`).join('')}`;
+        // };
         const displayComments = (comments) => {
           if (!comments.length) return 'There are no comments yet';
-          return `${comments.map((item) => `<li><span class="fw-bold">${item.creation_date}</span> <span class="text-decoration-underline">${item.username}:</span> ${item.comment}</li>`).join('')}`;
+          return `${comments
+            .map(
+              (item) => `<li><span class="fw-bold">${item.creation_date}</span> <span class="text-decoration-underline">${item.username}:</span> ${item.comment}</li>`,
+            )
+            .join('')}`;
         };
 
         getComments(id).then((commentsList) => {
@@ -57,7 +65,29 @@ const showMealList = () => {
           <ul id="comments-list">
               ${displayComments(commentsList)}
           </ul>
+          <h5>Add a comment</h5>
+            <form id="comments-form" class="d-flex flex-column">
+              <label for="name" hidden>Enter name</label>
+              <input type="text" required placeholder="Your Name" id="name" name="name" class="w-50 mb-2">
+              <label for="message" hidden>Enter comment</label>
+              <textarea required placeholder="Your Insights" id="message" name="message"></textarea>
+            </form>
           `;
+          document.getElementById('comments-form').addEventListener('submit', (e) => {
+              e.preventDefault();
+              const form = e.currentTarget.elements;
+              const username = form.name.value;
+              const comment = form.message.value;
+              sendComment(id, username, comment).then((result) => {
+                if (result.ok) {
+                  getComments(id).then((commentsList) => {
+                    document.getElementById('comments-list').innerHTML = `${displayComments(commentsList)}`;
+                  });
+                }
+              });
+              form.name.value = '';
+              form.message.value = '';
+            });
           });
         });
       };

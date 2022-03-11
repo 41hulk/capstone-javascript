@@ -42,6 +42,18 @@ const getComments = async (id) => {
   return commentsList;
 };
 
+const sendComment = (id, username, comment) => fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnjmjUJJQAhlumcZxnbj/comments', {
+  method: 'POST',
+  body: JSON.stringify({
+    item_id: id,
+    username,
+    comment,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+});
+
 export {
-  getMealsList, getMealDetails, getLikes, getComments, sendLike,
+  getMealsList, getMealDetails, getLikes, getComments, sendLike, sendComment
 };
